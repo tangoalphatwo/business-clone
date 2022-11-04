@@ -8,8 +8,12 @@ import { selectUser, login, logout } from './features/userSlice';
 import Login from './Login';
 import { useSelector } from 'react-redux';
 import { auth } from './Firebase';
+import { useDispatch } from 'react-redux';
 
 function App() {
+
+  // redux dispatch hook
+  const dispatch = useDispatch();
 
   // redux useSelector hook, gets user from redux
   const user = useSelector(selectUser);
