@@ -1,0 +1,14 @@
+.inputOption {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: var(--g-light);
+    padding: 10px;
+}
+
+.inputOption:hover {
+    background-color: var(--white);
+    border-radius: 10px;
+    color: var(--g-dark);
+    cursor: pointer;
+}
