@@ -21,10 +21,10 @@ export const userSlice = createSlice({
   },
 });
 
-// 
+// exports userSlice actions to data layer
 export const { login, logout } = userSlice.actions;
 
-// selector user
+// selector for user
 export const selectUser = (state) => state.user.user;
 
 export default userSlice.reducer;

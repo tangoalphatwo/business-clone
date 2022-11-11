@@ -17,10 +17,12 @@ function Login() {
     //login buttion functionality
     const loginToApp = (e) => {
         // prevents page refresh
-        e.preventDefault()
+        e.preventDefault();
 
         //
-        auth.signInWithEmailAndPassword(email, password).then(userAuth => {
+        auth.signInWithEmailAndPassword(email, password)
+        .then(userAuth => {
+            // pushes user into redux store
             dispatch(login({
                 email: userAuth.user.email,
                 uid: userAuth.user.uid,
@@ -32,6 +34,7 @@ function Login() {
 
     // register function
     const register = () => {
+        // soft name validation
         if (!name) {
             return alert('Please enter a full name.');
         }
@@ -44,7 +47,7 @@ function Login() {
                 photoURL: pic
             })
             .then(() => {
-                //
+                // pushes user into redux store
                 dispatch(login({
                     email: userAuth.user.email,
                     uid: userAuth.user.uid,
@@ -68,7 +71,7 @@ function Login() {
         <form>
             {/* sets value as the input piece of state */}
             {/* onChange releases input piece of state from static empty string */}
-            <input value={name} onChange={e => setName(e.target.value)} placeholder='Full name (required if registering)' type="text"></input>
+            <input value={name} onChange={e => setName(e.target.value)} placeholder='Full Name (Required if registering)' type="text"></input>
             <input value={pic} onChange={e => setPic(e.target.value)} placeholder='Profile Pic URL (optional)' type="text"></input>
             <input value={email} onChange={e => setEmail(e.target.value)}placeholder='Email' type="email"></input>
             <input value={password} onChange={e => setPassword(e.target.value)}placeholder='Password' type="password"></input>

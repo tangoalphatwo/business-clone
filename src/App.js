@@ -1,4 +1,4 @@
-import React, { useEffect, dispatch } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -18,7 +18,7 @@ function App() {
   // redux useSelector hook, gets user from redux
   const user = useSelector(selectUser);
 
-  // react useEffect hook for persistant auth
+  // react useEffect hook for persistent auth
   useEffect(() => {
     auth.onAuthStateChanged(userAuth => {
       if (userAuth) {
@@ -34,7 +34,7 @@ function App() {
         dispatch(logout());
       }
     })
-  })
+  }, [])
 
   return (
     <div className="app">
@@ -43,7 +43,7 @@ function App() {
       <Header />
 
       {/* if no user render login component */}
-      {!user ? <Login /> : (
+      {!user ? (<Login />) : (
         // else render the rest of the app
         <div className='app__body'>
         {/* {left sidebar componenet} */}
